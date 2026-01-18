@@ -1,0 +1,93 @@
+---
+title: "Slicer (Contributor)"
+description: "A modern, web-based Java reverse engineering tool for interactive bytecode inspection and analysis."
+date: "2025-07-22"
+tags: ["Java", "Reverse Engineering", "Web", "Bytecode", "Tooling"]
+github: "https://github.com/katana-project/slicer"
+featured: true
+---
+
+Slicer is a modern, web-based Java reverse engineering tool focused on interactive bytecode inspection, navigation, and analysis directly in the browser. It aims to provide a serious alternative to traditional desktop tooling by combining Java-aware analysis features with a UX designed specifically for reverse engineering workflows.
+
+The project is authored and maintained by **Matouš Kučera** and developed under the Katana Project organization.
+
+I contributed multiple features and improvements to Slicer as an external contributor, primarily focused on Java-specific tooling, editor ergonomics, and workspace usability.
+
+## Project Overview
+
+Slicer is designed around the idea that Java reverse engineering workflows should be accessible, inspectable, and composable in a web environment. Instead of treating class files as opaque binaries, the tool exposes structure, relationships, and metadata through a pane-based workspace.
+
+Key characteristics of Slicer include:
+
+- Browser-based Java class inspection
+- Tab and pane-driven analysis workflows
+- Java-aware navigation and UI components
+- Emphasis on usability for real reverse engineering tasks
+
+The overall architecture and long-term direction of the project are led by its main developer.
+
+## My Contributions
+
+My contributions focused on improving how users explore, navigate, and manipulate Java artifacts inside the Slicer workspace. This includes both visible UX features and supporting infrastructure.
+
+### Java Analysis Features
+
+I implemented several Java-specific features to make class inspection more practical:
+
+- A **Java class structure pane** exposing fields, methods, and inner classes  
+  https://github.com/katana-project/slicer/pull/19
+
+- **Class-specific icons** for Java files in the file tree to improve visual scanning  
+  https://github.com/katana-project/slicer/pull/18
+
+- **Type highlighting** when holding modifier keys, improving code navigation and readability  
+  https://github.com/katana-project/slicer/pull/36
+
+### Mapping and Remapping (Exploratory)
+
+I explored adding support for opening mapping files and performing class remapping as part of early deobfuscation workflows. This work was **experimental** and **not merged into the main project**, and therefore is not considered a Slicer feature.
+
+- Experimental mapping and remapping support (not merged)  
+  https://github.com/katana-project/slicer/pull/32
+
+The code is still published in my fork:
+https://github.com/Dani-error/slicer/tree/feature/mapping-file
+
+### Workspace and Editor UX
+
+Several contributions focused on improving the usability of the editor and workspace system:
+
+- **Pinned tabs support** for persistent analysis views  
+  https://github.com/katana-project/slicer/pull/35
+
+- A **workspace summary view** for improved project context  
+  https://github.com/katana-project/slicer/pull/37
+
+- Context menu actions for pane and editor management  
+  https://github.com/katana-project/slicer/pull/21
+
+- Support for opening files directly from external URLs  
+  https://github.com/katana-project/slicer/pull/20
+
+### Localization
+
+- Added **Spanish translations** to improve accessibility for Spanish-speaking users, contributing native-language localization support.
+
+## Impact
+
+These contributions improved Slicer’s suitability for real-world Java reverse engineering by:
+
+- Making Java structure and metadata more accessible
+- Reducing friction in multi-tab and multi-pane workflows
+- Improving visual clarity and navigation efficiency
+- Expanding accessibility through localization
+
+## Credits
+
+Slicer is authored and maintained by **Matouš Kučera**:  
+https://github.com/zlataovce
+
+Project repository:  
+https://github.com/katana-project/slicer
+
+This project is not owned by me; all architectural decisions and long-term maintenance are handled by the original author.
