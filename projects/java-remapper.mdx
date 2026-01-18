@@ -47,13 +47,6 @@ const outputClass = await remap(inputClass, mappings);
 fs.writeFileSync("ExampleRemapped.class", outputClass);
 ```
 
-## Design Goals
-
-- **Minimal API surface**
-- **Format-agnostic mapping model**
-- **Single Java implementation shared via WASM**
-- **Intended for tooling, not end users**
-
 ## Installation
 
 ```bash
