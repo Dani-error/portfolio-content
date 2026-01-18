@@ -1,0 +1,65 @@
+---
+title: "Java Remapper"
+description: "A JavaScript/TypeScript library for parsing Java mapping formats and remapping Java class files in Node.js or the browser."
+date: "2025-07-28"
+tags: ["Java", "JavaScript", "TypeScript", "Reverse Engineering", "JVM", "WASM"]
+github: "https://github.com/Dani-error/java-remapper"
+featured: true
+---
+
+Java Remapper is a JavaScript/TypeScript library for **remapping Java `.class` files using standard Java mapping formats**. While the public API is JS/TS, the actual remapping logic is implemented in Java and compiled to **WebAssembly via TeaVM**, allowing the same bytecode logic to run in Node.js and the browser without a JVM.
+
+The library is intentionally low-level and designed to be used as a building block rather than a full end‑user tool.
+
+## Features
+
+### Mapping Support
+
+- Supports common Java mapping formats:
+  - SRG / XSRG
+  - CSRG / TSRG (v1 & v2)
+  - ProGuard
+  - Tiny (v1 & v2)
+- Automatic format detection based on file contents
+- Unified internal representation via a `MappingSet`
+
+### Class Remapping
+
+- Remaps Java `.class` files from obfuscated to deobfuscated names
+- Handles classes, fields, methods, and descriptors
+- Output is a raw byte array, ready to be written or post-processed
+- Works identically in Node.js and browser environments
+
+## Usage
+
+```ts
+import { detectMappingFormat, parseMappings, remap } from "java-remapper";
+import fs from "fs";
+
+const mappingContent = fs.readFileSync("mappings.tiny", "utf8");
+const format = detectMappingFormat(mappingContent)!;
+
+const mappings = parseMappings(format, mappingContent);
+
+const inputClass = fs.readFileSync("Example.class");
+const outputClass = await remap(inputClass, mappings);
+
+fs.writeFileSync("ExampleRemapped.class", outputClass);
+```
+
+## Design Goals
+
+- **Minimal API surface**
+- **Format-agnostic mapping model**
+- **Single Java implementation shared via WASM**
+- **Intended for tooling, not end users**
+
+## Installation
+
+```bash
+npm install java-remapper
+```
+
+## Contributing
+
+Issues and pull requests are welcome on GitHub, especially around mapping edge cases and performance improvements.
